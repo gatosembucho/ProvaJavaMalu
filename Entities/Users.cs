@@ -6,6 +6,6 @@ public class User
     public string NomeCompleto { get; set; }
     public string Username { get; set; }
     public string Password { get; set; }
-    public int IDTrip { get; set; }
+    
     public ICollection<Trip> Trips = [];
 }

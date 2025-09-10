@@ -11,7 +11,7 @@ using ProvaJavaMalu.Entities;
 namespace ProvaJavaMalu.Migrations
 {
     [DbContext(typeof(ProvaJavaMaluDbContext))]
-    [Migration("20250910164202_InitialModel")]
+    [Migration("20250910172930_InitialModel")]
     partial class InitialModel
     {
         /// <inheritdoc />
@@ -58,12 +58,12 @@ namespace ProvaJavaMalu.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IDUser")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 
@@ -77,9 +77,6 @@ namespace ProvaJavaMalu.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<int>("IDTrip")
-                        .HasColumnType("int");
 
                     b.Property<string>("NomeCompleto")
                         .IsRequired()
@@ -115,13 +112,13 @@ namespace ProvaJavaMalu.Migrations
 
             modelBuilder.Entity("ProvaJavaMalu.Entities.Point", b =>
                 {
-                    b.HasOne("ProvaJavaMalu.Entities.Trip", "Trips")
+                    b.HasOne("ProvaJavaMalu.Entities.Trip", "Place")
                         .WithMany("Points")
                         .HasForeignKey("IDTrip")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Trips");
+                    b.Navigation("Place");
                 });
 
             modelBuilder.Entity("TripUser", b =>

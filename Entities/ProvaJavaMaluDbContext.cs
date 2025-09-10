@@ -10,10 +10,11 @@ public class ProvaJavaMaluDbContext(DbContextOptions options) : DbContext(option
     protected override void OnModelCreating(ModelBuilder model)
     {
         model.Entity<Point>()
-        .HasOne(t => t.Trips)
+        .HasOne(t => t.Place)
         .WithMany(p => p.Points)
         .HasForeignKey(t => t.IDTrip)
         .OnDelete(DeleteBehavior.Cascade);
+
 
         model.Entity<User>()
        .HasMany(t => t.Trips)

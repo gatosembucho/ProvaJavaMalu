@@ -6,5 +6,5 @@ public class Point
     public string Title { get; set; }
     
     public int IDTrip { get; set; }
-    public Trip Trips { get; set; }
+    public Trip Place { get; set; }
 }
