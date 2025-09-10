@@ -3,7 +3,7 @@ using ProvaJavaMalu.Entities;
 
 namespace ProvaJavaMalu.UseCases.ViewTrip;
 
-public class ViewTrip(ProvaJavaMaluDbContext ctx)
+public class ViewTripUseCase(ProvaJavaMaluDbContext ctx)
 {
      public async Task<Result<ViewTripResponse>> Do(ViewTripRequest request)
     {
