@@ -15,7 +15,8 @@ public class EditTripUseCase(ProvaJavaMaluDbContext ctx)
         if (trip.UserID != IDOwner)
             return Result<EditTripResponse>.Fail("Voce não pode acessar esse passeio");
 
-        ctx.Add(trip);
+
+        ctx.Add(IDOwner);
         await ctx.SaveChangesAsync();
 
         return Result<EditTripResponse>.Success(new());
