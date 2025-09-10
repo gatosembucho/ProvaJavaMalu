@@ -1,5 +1,5 @@
 namespace ProvaJavaMalu.Services.JWT;
 public record ProfileToAuth(
-    Guid UserId,
+    int ID,
     string Username
 );

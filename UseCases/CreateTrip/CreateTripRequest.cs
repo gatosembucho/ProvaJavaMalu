@@ -6,13 +6,13 @@ public record CreateTripRequest
 {
     [Required]
     [MaxLength(20)]
-    public string Title { get; set; }
+    public string Title { get; init; }
 
     [Required]
     [MaxLength(200)]
     [MinLength(40)]
-    public string Description { get; set; }
+    public string Description { get; init; }
 
     [Required]
-    public int OwnerID { get; set; }
+    public int OwnerID { get; init; }
 }

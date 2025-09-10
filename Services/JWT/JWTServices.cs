@@ -15,7 +15,7 @@ public class JWTService : IJWTService
         var jwt = new JwtSecurityToken(
             claims: [
 
-                new Claim(ClaimTypes.NameIdentifier, data.UserId.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, data.ID.ToString()),
 
                 new Claim(ClaimTypes.Name, data.Username)
             ],
