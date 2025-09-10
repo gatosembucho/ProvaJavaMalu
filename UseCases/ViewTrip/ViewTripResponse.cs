@@ -1,0 +1,1 @@
+namespace ProvaJavaMalu.UseCases.ViewTrip;
