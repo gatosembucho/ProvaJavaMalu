@@ -1,6 +1,9 @@
 using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using ProvaJava.EndPoints;
+using ProvaJavaMalu.EndPoints;
 using ProvaJavaMalu.Entities;
 using ProvaJavaMalu.Services.JWT;
 using ProvaJavaMalu.UseCases.CreateTrip;
@@ -42,13 +45,22 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = key,
         };
     });
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddAuthorization();
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+app.ConfigureAuthEndpoints();
+app.ConfigureTripEndPoints();
 
 
 app.Run();
-
-internal class JwtBearerDefaults
-{
-}

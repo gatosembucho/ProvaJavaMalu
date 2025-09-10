@@ -41,7 +41,7 @@ public static class TripEndPoints
               if (claim is null)
                   return Results.Unauthorized();
               var userId = Guid.Parse(claim.Value);
-              var result = await useCase.Do(request)
+              var result = await useCase.Do(request);
               if (result.IsSuccess)
                     return Results.Created();
                 return Results.BadRequest(result.Reason)
